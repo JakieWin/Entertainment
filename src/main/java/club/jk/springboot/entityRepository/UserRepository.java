@@ -7,9 +7,6 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User,Long> {
     List<User> findAll();
-    User findByUserName(String userName);
-    List<User> findByUserNameContaining(String userName);
-    User findByUserNameContainingOrEmailAddrContaining(String userName,String emailAddr);
-
-
+    User findByOpenid(String openid);
+    void deleteByOpenid(String openid);
 }

@@ -16,6 +16,8 @@ public class ReadRecord implements Serializable {
     private long userId;
     @Column
     private long bookId;
+    @Column(nullable = false)
+    private long chapter;                      //小说读到的章节
     @Column
     private String schedule;                   //小说阅读进度
 
@@ -35,12 +37,20 @@ public class ReadRecord implements Serializable {
         this.userId = userId;
     }
 
-    public long getTextId() {
+    public long getBookId() {
         return bookId;
     }
 
-    public void setTextId(long bookId) {
+    public void setBookId(long bookId) {
         this.bookId = bookId;
+    }
+
+    public long getChapter() {
+        return chapter;
+    }
+
+    public void setChapter(long chapter) {
+        this.chapter = chapter;
     }
 
     public String getSchedule() {

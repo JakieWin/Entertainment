@@ -4,6 +4,7 @@ import club.jk.springboot.entity.User;
 import club.jk.springboot.entityRepository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.DateFormat;
@@ -16,7 +17,7 @@ public class PCUserContrller {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping("setUser")
+    @RequestMapping("/setUser")
     public void setUser(){
         Date date = new Date();
         DateFormat format = DateFormat.getDateTimeInstance(DateFormat.LONG,DateFormat.LONG);
@@ -25,7 +26,7 @@ public class PCUserContrller {
 
     @RequestMapping("/getUser")
     public User getUser(){
-        User user = userRepository.findByUserName("jk");
+        User user = new User();
         return user;
     }
 
@@ -34,4 +35,6 @@ public class PCUserContrller {
         List<User> users = userRepository.findAll();
         return users;
     }
+
+
 }

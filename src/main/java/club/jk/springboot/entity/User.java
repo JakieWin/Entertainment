@@ -12,7 +12,7 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue
-    private long id;                             //用户ID                   //用户昵称
+    private long id;                             //用户ID
     @Column(nullable = false,unique = true)
     private String openid;                           //微信登录的openid
     @Column(nullable = false)

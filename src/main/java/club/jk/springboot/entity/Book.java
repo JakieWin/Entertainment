@@ -20,13 +20,11 @@ public class Book implements Serializable {
     @Column(nullable = false)
     private String author;                                //作者名
     @Column(nullable = false)
-    private long UpLoader;                           //上传者的id
+    private long upLoader;                           //上传者的id
     @Column(nullable = false)
     private String content;                           //小说简介
     @Column
     private String bookPath;                         //小说文件路径
-    @Column
-    private long chapterNumber;                     //小说章节的总数目
     @Column
     private String bookCoverPath;                  //小说封面图片路径
 
@@ -69,11 +67,11 @@ public class Book implements Serializable {
     }
 
     public long getUpLoader() {
-        return UpLoader;
+        return upLoader;
     }
 
     public void setUpLoader(long upLoader) {
-        UpLoader = upLoader;
+        this.upLoader = upLoader;
     }
 
     public String getContent() {
@@ -90,14 +88,6 @@ public class Book implements Serializable {
 
     public void setBookPath(String bookPath) {
         this.bookPath = bookPath;
-    }
-
-    public long getChapterNumber() {
-        return chapterNumber;
-    }
-
-    public void setChapterNumber(long chapterNumber) {
-        this.chapterNumber = chapterNumber;
     }
 
     public String getBookCoverPath() {
