@@ -41,8 +41,7 @@ public class WcBookController {
     public List<Book> getBookBySearch(@RequestParam(value = "page", defaultValue = "0") Integer page,
                                       @RequestParam(value = "size", defaultValue = "5") Integer size,
                                       @RequestParam(value = "search",required = false) String search){
-        Sort sort = new Sort(Sort.Direction.ASC,"id");
-        Pageable pageable = PageRequest.of(page,size,sort);
+        Pageable pageable = PageRequest.of(page,size,Sort.Direction.ASC,"id");
         List<Book> books = bookService.findBySearch(search,pageable);
         return books;
     }

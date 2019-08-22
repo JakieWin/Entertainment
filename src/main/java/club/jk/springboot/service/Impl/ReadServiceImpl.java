@@ -18,6 +18,7 @@ public class ReadServiceImpl implements ReadService {
     @Resource
     ReadRecordRepository readRecordRepository;
 
+    //根据用户查看他的书架上的书情况
     @Override
     public List<ReadRecord> findByUserId(long userId,Pageable pageable) {
         Page<ReadRecord> bookShelfPage = readRecordRepository.findByUserId(userId,pageable);
@@ -25,6 +26,7 @@ public class ReadServiceImpl implements ReadService {
         return bookshelf;
     }
 
+    //加入一个阅读记录
     @Override
     public void addRead(long userId, long bookId, String schedule) {
         ReadRecord readRecord = new ReadRecord();
@@ -35,6 +37,7 @@ public class ReadServiceImpl implements ReadService {
         readRecordRepository.save(readRecord);
     }
 
+    //更新用户阅读记录
     @Override
     public void updateRead(long userId, long bookId, long chapter, String schedule) {
         ReadRecord readRecord = readRecordRepository.findByUserIdAndBookId(userId,bookId);
@@ -43,11 +46,13 @@ public class ReadServiceImpl implements ReadService {
         readRecordRepository.save(readRecord);
     }
 
+    //删除用户单个阅读记录
     @Override
     public void deleteRead(long userId, long bookId) {
         readRecordRepository.deleteByUserIdAndBookId(userId,bookId);
     }
 
+    //删除用户所有阅读记录
     @Override
     public void deleteReadByUserId(long userId) {
         readRecordRepository.deleteByUserId(userId);

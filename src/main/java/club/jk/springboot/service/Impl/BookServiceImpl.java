@@ -19,7 +19,7 @@ public class BookServiceImpl implements BookService {
     @Resource
     BookRepository bookRepository;
 
-    //根据书的类目显示书籍
+    //根据书的类目显示书籍并分页
     @Override
     public List<Book> findByCategoryId(long categoryId,Pageable pageable) {
         Page<Book> booksPage = bookRepository.findByCategoryId(categoryId,pageable);
